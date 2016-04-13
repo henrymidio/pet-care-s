@@ -36,6 +36,7 @@ public class CustomViewPager extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+
         li = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = li.inflate(R.layout.swipe_pager_adapter, container, false);
         ImageView iv = (ImageView) item_view.findViewById(R.id.ivPager);

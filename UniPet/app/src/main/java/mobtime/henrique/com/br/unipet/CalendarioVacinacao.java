@@ -3,12 +3,12 @@ package mobtime.henrique.com.br.unipet;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Precos extends AppCompatActivity {
+public class CalendarioVacinacao extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_precos);
-        getSupportActionBar().setTitle("Tabela de Preços");
+        setContentView(R.layout.activity_calendario_vacinacao);
+        getSupportActionBar().setTitle("Calendário de Vacinação");
     }
 }

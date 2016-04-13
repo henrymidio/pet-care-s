@@ -10,8 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/ToolbarTheme"
-            >
+            android:theme="@style/ToolbarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +18,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".Agendamento" />
-        <activity android:name=".Precos"></activity>
+        <activity android:name=".Precos" />
+        <activity
+            android:name=".MeusAtendimentos"
+            android:theme="@style/ToolbarTheme" />
+        <activity
+            android:name=".MeusExames"
+            android:theme="@style/ToolbarTheme" />
+        <activity android:name=".CalendarioVacinacao"></activity>
     </application>
 
 </manifest>
