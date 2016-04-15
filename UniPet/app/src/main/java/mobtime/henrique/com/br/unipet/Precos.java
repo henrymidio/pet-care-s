@@ -9,6 +9,6 @@ public class Precos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_precos);
-        getSupportActionBar().setTitle("Tabela de Preços");
+        getSupportActionBar().hide();
     }
 }

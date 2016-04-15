@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Pet Care's");
+        toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
 
         //Blur Imagem Account Header
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName("Meus Atendimentos").withIcon(R.drawable.ic_pets),
+                        new PrimaryDrawerItem().withName("Home").withIcon(R.drawable.ic_home_black_24dp),
                         new PrimaryDrawerItem().withName("Meus Exames").withIcon(R.drawable.ic_local_hospital),
                         new PrimaryDrawerItem().withName("Calendário de Vacinação").withIcon(R.drawable.ic_date),
                         new DividerDrawerItem(),
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                         // do something with the clicked item :D
                         switch (position) {
                             case 1:
-                                Intent it1 = new Intent(MainActivity.this, MeusAtendimentos.class);
+                                Intent it1 = new Intent(MainActivity.this, Launcher.class);
                                 startActivity(it1);
                                 break;
                             case 2:

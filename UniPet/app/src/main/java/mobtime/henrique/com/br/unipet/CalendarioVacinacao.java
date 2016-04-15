@@ -9,6 +9,6 @@ public class CalendarioVacinacao extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendario_vacinacao);
-        getSupportActionBar().setTitle("Calendário de Vacinação");
+        getSupportActionBar().hide();
     }
 }
