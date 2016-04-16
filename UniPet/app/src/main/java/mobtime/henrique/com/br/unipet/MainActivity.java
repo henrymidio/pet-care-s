@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -21,6 +22,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -33,6 +35,8 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+
+import java.util.List;
 
 import mobtime.henrique.com.br.unipet.adapters.CustomViewPager;
 
@@ -49,18 +53,34 @@ public class MainActivity extends AppCompatActivity {
         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
+        //Seta font
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/ProximaNova-Semibold.ttf");
+        TextView toolbar_title = (TextView) findViewById(R.id.toolbar_title);
+        toolbar_title.setTypeface(tf);
+        TextView tv2 = (TextView) findViewById(R.id.textView2);
+        tv2.setTypeface(tf);
+        TextView tvConsulta = (TextView) findViewById(R.id.tvConsulta);
+        tvConsulta.setTypeface(tf);
+        TextView tv3 = (TextView) findViewById(R.id.textView3);
+        tv3.setTypeface(tf);
+        TextView tvDesc1 = (TextView) findViewById(R.id.tvDesc1);
+        tvDesc1.setTypeface(tf);
+        TextView tv5 = (TextView) findViewById(R.id.textView5);
+        tv5.setTypeface(tf);
+
+
         //Blur Imagem Account Header
-        Drawable acHeader = blurImage(R.drawable.beethoven);
+        Drawable acHeader = blurImage(R.drawable.vetpronto);
 
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
-                .withHeaderBackground(acHeader)
+                .withHeaderBackground(R.drawable.bkheader)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Beethoven").withEmail("90 Kg | 100 cm | 8 anos").withIcon(R.drawable.beethoven)
+                        new ProfileDrawerItem().withName("Pet Care's").withEmail("petcares@gmail.com").withIcon(R.drawable.pata)
                         // new ProfileDrawerItem().withName("Scooby").withEmail("60 Kg | 140 cm | 4 anos").withIcon(R.drawable.scooby)
                 )
                 .build();
@@ -73,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName("Home").withIcon(R.drawable.ic_home_black_24dp),
-                        new PrimaryDrawerItem().withName("Meus Exames").withIcon(R.drawable.ic_local_hospital),
+                        new PrimaryDrawerItem().withName("Meus Exames").withIcon(R.drawable.ic_folder_black_24dp),
                         new PrimaryDrawerItem().withName("Calendário de Vacinação").withIcon(R.drawable.ic_date),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName("Tabela de Preços").withIcon(R.drawable.ic_monetization),
@@ -142,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         final Allocation input = Allocation.createFromBitmap( rs, icon, Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SCRIPT );
         final Allocation output = Allocation.createTyped( rs, input.getType() );
         final ScriptIntrinsicBlur script = ScriptIntrinsicBlur.create( rs, Element.U8_4(rs) );
-        script.setRadius(20);
+        script.setRadius(22);
         script.setInput(input);
         script.forEach(output);
         output.copyTo(icon);

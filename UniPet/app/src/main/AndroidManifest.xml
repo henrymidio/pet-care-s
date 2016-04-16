@@ -19,7 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Agendamento" />
+        <activity
+            android:name=".Agendamento"
+            android:theme="@style/ToolbarTheme"/>
         <activity android:name=".Precos" />
         <activity
             android:name=".MeusAtendimentos"
@@ -29,7 +31,9 @@
             android:theme="@style/ToolbarTheme" />
         <activity android:name=".CalendarioVacinacao" />
         <activity android:name=".Launcher"></activity>
-        <activity android:name=".Cadastro"></activity>
+        <activity
+            android:name=".Cadastro"
+            android:theme="@style/ToolbarTheme"/>
     </application>
 
 </manifest>

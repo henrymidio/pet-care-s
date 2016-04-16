@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:title="Add"
-        android:icon="@drawable/ic_person_white_24dp"
+        android:icon="@drawable/ic_local_hospital_white"
         app:showAsAction="always"></item>
 
 </menu>
