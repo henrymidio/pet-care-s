@@ -88,10 +88,15 @@
         android:textStyle="bold"
         android:layout_marginBottom="15dp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        >
+        android:orientation="vertical">
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -103,26 +108,49 @@
             android:layout_height="wrap_content"
             android:text="Bronche"
             android:id="@+id/cb2"
-            android:layout_marginLeft="6dp"
             android:checked="false" />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="V10/4"
+            android:text="V10"
             android:id="@+id/cb3"
-            android:layout_marginLeft="6dp"
-            android:checked="false" />
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Giárdia"
-            android:id="@+id/cb4"
-            android:layout_marginLeft="6dp"
             android:checked="false" />
 
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="75dp">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giárdia"
+                android:id="@+id/cb4"
+                android:checked="false" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vermífugo"
+                android:id="@+id/cb5"
+                android:checked="false" />
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="V4"
+                android:id="@+id/cb6"
+                android:checked="false" />
+
+        </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/sintomas">
 
     <TextView
         android:layout_width="wrap_content"
@@ -137,7 +165,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/etSintoma1"
         android:layout_weight="0.22"
         android:layout_marginTop="10dp"
         android:inputType="text"
@@ -146,15 +174,16 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/etSintoma2"
         android:singleLine="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/etSintoma3"
         android:layout_gravity="center_horizontal"
         android:singleLine="true" />
+</LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -203,8 +232,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="AGENDAR"
-        android:id="@+id/button"
-        android:layout_marginTop="15dp" />
+        android:id="@+id/btnAgendar"
+        android:layout_marginTop="15dp"
+        android:onClick="agendarConsulta" />
 
 </LinearLayout>
 

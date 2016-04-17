@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager vp;
     private CustomViewPager pagerAdapter;
     private ImageButton ibConsulta;
+    private ImageButton ibVacinacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName("Home").withIcon(R.drawable.ic_home_black_24dp),
-                        new PrimaryDrawerItem().withName("Meus Exames").withIcon(R.drawable.ic_folder_black_24dp),
+                        new PrimaryDrawerItem().withName("Meus Atendimentos").withIcon(R.drawable.ic_folder_black_24dp),
                         new PrimaryDrawerItem().withName("Calendário de Vacinação").withIcon(R.drawable.ic_date),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName("Tabela de Preços").withIcon(R.drawable.ic_monetization),
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(it1);
                                 break;
                             case 2:
-                                Intent it2 = new Intent(MainActivity.this, MeusExames.class);
+                                Intent it2 = new Intent(MainActivity.this, MeusAtendimentos.class);
                                 startActivity(it2);
                                 break;
                             case 3:
@@ -119,6 +120,10 @@ public class MainActivity extends AppCompatActivity {
                             case 5:
                                 Intent it5 = new Intent(MainActivity.this, Precos.class);
                                 startActivity(it5);
+                                break;
+                            case 6:
+                                Intent it6 = new Intent(MainActivity.this, ListaMedicos.class);
+                                startActivity(it6);
                                 break;
                         }
                         return true;
@@ -131,11 +136,22 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter = new CustomViewPager(this);
         vp.setAdapter(pagerAdapter);
 
+        //LISTENERS DOS BOTÕES DE AGENDAMENTO
         ibConsulta = (ImageButton) findViewById(R.id.ibConsulta);
         ibConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(MainActivity.this, Agendamento.class);
+                it.putExtra("agendamento", "Consulta");
+                startActivity(it);
+            }
+        });
+        ibVacinacao = (ImageButton) findViewById(R.id.ibVacinacao);
+        ibVacinacao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(MainActivity.this, Agendamento.class);
+                it.putExtra("agendamento", "Vacinacao");
                 startActivity(it);
             }
         });

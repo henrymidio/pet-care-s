@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <com.pkmmte.view.CircularImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:id="@+id/ivMedico"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Nome"
+        android:id="@+id/tvNomeMedico"
+        android:layout_alignTop="@+id/ivMedico"
+        android:layout_toRightOf="@+id/ivMedico"
+        android:layout_toEndOf="@+id/ivMedico"
+        android:layout_marginLeft="15dp"
+        android:textColor="#0b0a0a"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="CRM"
+        android:id="@+id/tvRegistro"
+        android:layout_below="@+id/tvNomeMedico"
+        android:layout_alignLeft="@+id/tvNomeMedico"
+        android:layout_alignStart="@+id/tvNomeMedico" />
+</RelativeLayout>

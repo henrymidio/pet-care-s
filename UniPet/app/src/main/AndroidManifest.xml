@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:name=".Agendamento"
-            android:theme="@style/ToolbarTheme"/>
+            android:theme="@style/ToolbarTheme" />
         <activity android:name=".Precos" />
         <activity
             android:name=".MeusAtendimentos"
@@ -30,10 +30,12 @@
             android:name=".MeusExames"
             android:theme="@style/ToolbarTheme" />
         <activity android:name=".CalendarioVacinacao" />
-        <activity android:name=".Launcher"></activity>
+        <activity android:name=".Launcher" />
         <activity
             android:name=".Cadastro"
-            android:theme="@style/ToolbarTheme"/>
+            android:theme="@style/ToolbarTheme" />
+        <activity android:name=".ListaMedicos"
+            android:theme="@style/ToolbarTheme" ></activity>
     </application>
 
 </manifest>
