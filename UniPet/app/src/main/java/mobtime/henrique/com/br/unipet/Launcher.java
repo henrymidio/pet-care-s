@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,7 +53,7 @@ public class Launcher extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/ProximaNova-Semibold.ttf");
         TextView tv = (TextView) findViewById(R.id.textView62);
@@ -60,6 +61,8 @@ public class Launcher extends AppCompatActivity implements View.OnClickListener{
 
         etLogin = (EditText) findViewById(R.id.etLogin);
         etSenha = (EditText) findViewById(R.id.etSenha);
+
+        //etLogin.getBackground().mutate().setColorFilter(getResources().getColor(R.color.), PorterDuff.Mode.SRC_ATOP);
 
         initViews();
 

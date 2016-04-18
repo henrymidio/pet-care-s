@@ -33,6 +33,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pets" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Características"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:id="@+id/tvCaracteristicas" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
@@ -46,6 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerEspecie"
+            android:focusable="true"
             android:layout_weight="1"
             android:layout_marginLeft="13dp" />
 
@@ -79,14 +102,26 @@
         android:visibility="gone"
         >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_local_hospital" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Vacinas"
+        android:layout_marginLeft="10dp"
         android:id="@+id/textView13"
         android:textStyle="bold"
         android:layout_marginBottom="15dp" />
+            </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -152,14 +187,29 @@
     android:orientation="vertical"
     android:id="@+id/sintomas">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView3"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_local_hospital" />
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sintomas"
         android:id="@+id/textView9"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:textStyle="bold" />
+        </LinearLayout>
 
     <EditText
         android:layout_width="match_parent"
@@ -185,35 +235,72 @@
         android:singleLine="true" />
 </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_date" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Quando pode nos receber?"
         android:id="@+id/textView10"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="25dp"
         android:textStyle="bold" />
+        </LinearLayout>
 
     <DatePicker
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/datePicker" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_alarm_black_24dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Melhor horário"
         android:id="@+id/textView11"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
         android:textStyle="bold" />
+        </LinearLayout>
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerHora" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_monetization" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -221,7 +308,9 @@
         android:text="Forma de Pagamento"
         android:id="@+id/textView12"
         android:textStyle="bold"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp" />
+        </LinearLayout>
 
     <Spinner
         android:layout_width="match_parent"

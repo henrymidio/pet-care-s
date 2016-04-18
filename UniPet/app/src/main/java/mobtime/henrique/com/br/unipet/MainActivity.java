@@ -1,7 +1,9 @@
 package mobtime.henrique.com.br.unipet;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     private CustomViewPager pagerAdapter;
     private ImageButton ibConsulta;
     private ImageButton ibVacinacao;
+    private boolean loggedIn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
+
+        //Verifica se o usuários está logado no APLICATIVO
+        SharedPreferences sp = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
+        loggedIn = sp.getBoolean("logged", false);
+
+        if(!loggedIn){
+            Intent it = new Intent(this, Launcher.class);
+            startActivity(it);
+            finish();
+        }
 
         //Seta font
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/ProximaNova-Semibold.ttf");
@@ -81,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.bkheader)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Pet Care's").withEmail("petcares@gmail.com").withIcon(R.drawable.pata)
+                        new ProfileDrawerItem().withName("Pet Care's").withEmail("petcares@outlook.com.br").withIcon(R.drawable.pata)
                         // new ProfileDrawerItem().withName("Scooby").withEmail("60 Kg | 140 cm | 4 anos").withIcon(R.drawable.scooby)
                 )
                 .build();
@@ -106,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                         // do something with the clicked item :D
                         switch (position) {
                             case 1:
-                                Intent it1 = new Intent(MainActivity.this, Launcher.class);
+                                Intent it1 = new Intent(MainActivity.this, Conclusao.class);
                                 startActivity(it1);
                                 break;
                             case 2:
@@ -166,7 +180,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show();
+        Intent it = new Intent(this, MapaClinicas.class);
+        startActivity(it);
         return super.onOptionsItemSelected(item);
 
     }

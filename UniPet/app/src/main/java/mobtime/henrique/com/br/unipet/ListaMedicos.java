@@ -1,10 +1,12 @@
 package mobtime.henrique.com.br.unipet;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -41,5 +43,12 @@ public class ListaMedicos extends AppCompatActivity {
 
         lvListaMedicos = (ListView) findViewById(R.id.lvListaMedicos);
         lvListaMedicos.setAdapter(new ListaMedicosAdapter(this, lista));
+        lvListaMedicos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent(ListaMedicos.this, MedicoProfile.class);
+                startActivity(it);
+            }
+        });
     }
 }

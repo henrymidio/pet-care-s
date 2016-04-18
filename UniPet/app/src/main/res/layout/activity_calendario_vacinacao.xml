@@ -3,499 +3,281 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     >
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     android:id="@+id/rl"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="mobtime.henrique.com.br.unipet.CalendarioVacinacao">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        />
 
     <GridLayout
         android:id="@+id/grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:horizontalSpacing="1dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:verticalSpacing="1dp"
-        android:layout_alignParentTop="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="IDADE"
-            android:id="@+id/textView17"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_marginBottom="18dp" />
+        android:layout_below="@+id/toolbar"
+        android:layout_alignLeft="@+id/toolbar"
+        android:layout_alignStart="@+id/toolbar">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="VACINA"
-            android:id="@+id/textView18"
+            android:id="@+id/textView17"
             android:layout_row="0"
-            android:layout_column="2" />
+            android:layout_column="0"
+            android:layout_marginBottom="12dp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="DATA"
+            android:id="@+id/textView18"
+            android:layout_row="0"
+            android:layout_column="12"
+            android:layout_marginLeft="58dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="30 Dias"
+            android:text="Vermífugo"
             android:id="@+id/textView21"
             android:layout_row="2"
             android:layout_column="0"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Vermífugo"
-            android:id="@+id/textView22"
-            android:layout_row="2"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="42 Dias"
-            android:id="@+id/textView23"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Anti-pulgas"
-            android:id="@+id/textView24"
-            android:layout_row="3"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V8/V10"
-            android:id="@+id/textView26"
-            android:layout_row="4"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="63 Dias"
-            android:id="@+id/textView27"
-            android:layout_row="5"
-            android:layout_column="0"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V8/V10"
-            android:id="@+id/textView28"
-            android:layout_row="5"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Tosse"
-            android:id="@+id/textView30"
-            android:layout_row="6"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="84 Dias"
-            android:layout_row="7"
-            android:layout_column="0"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V8/V10"
-            android:id="@+id/textView"
-            android:layout_row="7"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Tosse"
-            android:id="@+id/textView19"
-            android:layout_row="8"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="120 Dias"
-            android:layout_row="9"
-            android:layout_column="0"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Anti-rábica"
-            android:id="@+id/textView20"
-            android:layout_row="9"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="+1 Ano"
-            android:layout_row="10"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Vermífugo"
-            android:id="@+id/textView31"
-            android:layout_row="10"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(trimestral)"
-            android:id="@+id/textView32"
-            android:layout_alignBottom="@+id/hr"
-            android:layout_alignLeft="@+id/tvGatos"
-            android:layout_alignStart="@+id/tvGatos"
-            android:layout_row="11"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Anti-pulgas"
-            android:id="@+id/textView33"
-            android:layout_row="12"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(mensal)"
-            android:id="@+id/textView34"
-            android:layout_row="13"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V8/V10"
-            android:id="@+id/textView35"
-            android:layout_row="14"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(anual)"
-            android:id="@+id/textView36"
-            android:layout_row="15"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Tosse"
-            android:id="@+id/textView37"
-            android:layout_row="16"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(anual)"
-            android:id="@+id/textView38"
-            android:layout_row="17"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Anti-rábica"
-            android:id="@+id/textView39"
-            android:layout_row="18"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(anual)"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="(a cada 3 meses)"
             android:id="@+id/textView40"
-            android:layout_row="19"
-            android:layout_column="2" />
-
-    </GridLayout>
-
-    <View
-        android:id="@+id/hr"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/grid"
-        android:layout_height="2dp"
-        android:layout_marginTop="15dp"
-        android:background="#000000"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="GATOS"
-        android:id="@+id/tvGatos"
-        android:layout_alignTop="@+id/hr"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
-
-
-    <GridLayout
-        android:id="@+id/grid2"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/tvGatos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:horizontalSpacing="1dp"
-        android:numColumns="auto_fit"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="1dp">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="30 Dias"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Vermífugo"
-            android:layout_row="1"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="42 Dias"
-            android:id="@+id/textView41"
-            android:layout_row="2"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Anti-pulgas"
-            android:id="@+id/textView42"
-            android:layout_row="2"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="63 Dias"
-            android:id="@+id/textView44"
-            android:layout_row="4"
-            android:layout_column="0"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V4"
-            android:id="@+id/textView43"
             android:layout_row="3"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_row="2"
+            android:layout_column="12"
+            android:inputType="date" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="84 Dias"
-            android:id="@+id/textView46"
-            android:layout_row="5"
-            android:layout_column="0"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V4"
-            android:id="@+id/textView45"
+            android:text="V4 - GATOS"
+            android:id="@+id/textView23"
             android:layout_row="4"
-            android:layout_column="2" />
+            android:layout_column="0"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="120 Dias"
-            android:id="@+id/textView48"
-            android:layout_row="6"
-            android:layout_column="0" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V4"
-            android:id="@+id/textView47"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="(1º dose 42 dias,"
+            android:id="@+id/textView36"
             android:layout_row="5"
-            android:layout_column="2" />
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:layout_row="4"
+            android:layout_column="12"
+            android:inputType="date" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="+1 Ano"
-            android:id="@+id/textView50"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="3º dose 84 dias,"
+            android:id="@+id/textView38"
             android:layout_row="7"
             android:layout_column="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Anti-rábica"
-            android:id="@+id/textView49"
-            android:layout_row="6"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Vermífugo"
-            android:id="@+id/textView51"
-            android:layout_row="7"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(trimestral)"
-            android:id="@+id/textView52"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="reforço anualmente)"
+            android:id="@+id/textView39"
             android:layout_row="8"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
+            android:layout_column="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Anti-pulgas"
-            android:id="@+id/textView53"
+            android:text="V10 - CÃES"
+            android:id="@+id/textView27"
             android:layout_row="9"
-            android:layout_column="2" />
+            android:layout_column="0"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(mensal)"
-            android:id="@+id/textView54"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="2ª 63 dias,"
+            android:id="@+id/textView37"
+            android:layout_row="6"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText3"
+            android:inputType="date"
+            android:layout_row="9"
+            android:layout_column="12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="(1ª dose 42 dias,"
+            android:id="@+id/textView32"
             android:layout_row="10"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
+            android:layout_column="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="V4"
-            android:id="@+id/textView55"
-            android:layout_row="11"
-            android:layout_column="2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(anual)"
-            android:id="@+id/textView56"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="3º dose 84 dias,"
+            android:id="@+id/textView34"
             android:layout_row="12"
-            android:layout_column="2"
-            android:layout_marginBottom="10dp" />
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="reforço anualmente)"
+            android:id="@+id/textView35"
+            android:layout_row="13"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Giárdia"
+            android:layout_row="14"
+            android:layout_column="0"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="(1º dose 45 dias,"
+            android:id="@+id/textView19"
+            android:layout_row="15"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="2º dose 63 dias,"
+            android:id="@+id/textView33"
+            android:layout_row="11"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText5"
+            android:layout_row="14"
+            android:layout_column="12"
+            android:inputType="date" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Anti-rábica"
-            android:id="@+id/textView57"
-            android:layout_row="13"
-            android:layout_column="2" />
+            android:layout_row="21"
+            android:layout_column="0"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="(anual)"
-            android:id="@+id/textView58"
-            android:layout_row="14"
-            android:layout_column="2" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="(1º dose 120 dias,"
+            android:id="@+id/textView"
+            android:layout_row="22"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="2ª dose depois de 75 dias,"
+            android:id="@+id/textView20"
+            android:layout_row="16"
+            android:layout_column="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="reforço anualmente)"
+            android:id="@+id/textView31"
+            android:layout_row="17"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText6"
+            android:inputType="date"
+            android:layout_row="21"
+            android:layout_column="12" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="reforço anualmente)"
+            android:id="@+id/textView16"
+            android:layout_row="23"
+            android:layout_column="0" />
 
     </GridLayout>
 

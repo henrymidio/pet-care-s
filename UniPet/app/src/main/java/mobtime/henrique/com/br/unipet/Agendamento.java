@@ -2,9 +2,11 @@ package mobtime.henrique.com.br.unipet;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -89,18 +91,22 @@ public class Agendamento extends AppCompatActivity {
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/ProximaNova-Semibold.ttf");
         TextView tv9 = (TextView) findViewById(R.id.textView9);
         tv9.setTypeface(tf);
+        TextView tvCaracteristicas = (TextView) findViewById(R.id.tvCaracteristicas);
+        tvCaracteristicas.setTypeface(tf);
         TextView tv10 = (TextView) findViewById(R.id.textView10);
         tv10.setTypeface(tf);
         TextView tv11 = (TextView) findViewById(R.id.textView11);
         tv11.setTypeface(tf);
         TextView tv12 = (TextView) findViewById(R.id.textView12);
         tv12.setTypeface(tf);
+        TextView tv13 = (TextView) findViewById(R.id.textView13);
+        tv13.setTypeface(tf);
 
         String especies[] = {"Cachorro", "Gato"};
         String porte[] = {"Pequeno", "Médio", "Grande"};
         String hora[] = {"Qualquer horário de Manhã", "Qualquer horário à Tarde", "08h", "09h", "10h", "11h", "12h", "13h", "14h", "15h",
         "16h", "17h", "18h", "19h", "20h"};
-        String pagamento[] = {"PagSeguro", "Bitcoin", "Dinheiro"};
+        String pagamento[] = {"PagSeguro", "Bitcoin"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, especies);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -117,79 +123,91 @@ public class Agendamento extends AppCompatActivity {
     }
 
     public void agendarConsulta(View v){
-        //Recupera id do usuário
-        SharedPreferences settings = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
-        final int cliente_id = settings.getInt("id", 0);
+        new AlertDialog.Builder(this)
+                .setTitle("Você confirma o agendamento da consulta?")
+                .setMessage("")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-        //Recupera dados dos inputs
-        final String animal = spinnerEspecie.getSelectedItem().toString();
-        final String porte = spinnerPorte.getSelectedItem().toString();
-        final String sintoma1 = etSintoma1.getText().toString();
-        final String sintoma2 = etSintoma2.getText().toString();
-        final String sintoma3 = etSintoma3.getText().toString();
-        final String sintomas = sintoma1+", "+sintoma2+", "+sintoma3;
-        int dataMes = datePicker.getMonth() + 1;
-        int dataDia = datePicker.getDayOfMonth();
-        int dataAno = datePicker.getYear();
-        final String data = dataDia+"/"+dataMes+"/"+dataAno;
-        final String horario = spinnerHora.getSelectedItem().toString();
-        final String pagamento = spinnerPagamento.getSelectedItem().toString();
+                    public void onClick(DialogInterface dialog, int whichButton) {
 
-        //Seta os valores de checkbox
-        final String v1 = (cb1.isChecked()) ? "Anti-rábica" : "";
-        final String v2 = (cb2.isChecked()) ? "Bronche" : "";
-        final String v3 = (cb3.isChecked()) ? "V10" : "";
-        final String v4 = (cb4.isChecked()) ? "Giárgia" : "";
-        final String v5 = (cb5.isChecked()) ? "Vermífugo" : "";
-        final String v6 = (cb6.isChecked()) ? "V4" : "";
-        final String vacinas = v1+", "+v2+", "+v3+", "+v4+", "+v5+", "+v6;
+                        //Recupera id do usuário
+                        SharedPreferences settings = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
+                        final int cliente_id = settings.getInt("id", 0);
+
+                        //Recupera dados dos inputs
+                        final String animal = spinnerEspecie.getSelectedItem().toString();
+                        final String porte = spinnerPorte.getSelectedItem().toString();
+                        final String sintoma1 = etSintoma1.getText().toString();
+                        final String sintoma2 = etSintoma2.getText().toString();
+                        final String sintoma3 = etSintoma3.getText().toString();
+                        final String sintomas = sintoma1 + ", " + sintoma2 + ", " + sintoma3;
+                        int dataMes = datePicker.getMonth() + 1;
+                        int dataDia = datePicker.getDayOfMonth();
+                        int dataAno = datePicker.getYear();
+                        final String data = dataDia + "/" + dataMes + "/" + dataAno;
+                        final String horario = spinnerHora.getSelectedItem().toString();
+                        final String pagamento = spinnerPagamento.getSelectedItem().toString();
+
+                        //Seta os valores de checkbox
+                        final String v1 = (cb1.isChecked()) ? "Anti-rábica" : "";
+                        final String v2 = (cb2.isChecked()) ? "Bronche" : "";
+                        final String v3 = (cb3.isChecked()) ? "V10" : "";
+                        final String v4 = (cb4.isChecked()) ? "Giárgia" : "";
+                        final String v5 = (cb5.isChecked()) ? "Vermífugo" : "";
+                        final String v6 = (cb6.isChecked()) ? "V4" : "";
+                        final String vacinas = v1 + ", " + v2 + ", " + v3 + ", " + v4 + ", " + v5 + ", " + v6;
 
 
-        // Instantiate the RequestQueue.
-        NetworkConnection nc = NetworkConnection.getInstance(getApplicationContext());
-        RequestQueue queue = nc.getRequestQueue();
+                        // Instantiate the RequestQueue.
+                        NetworkConnection nc = NetworkConnection.getInstance(getApplicationContext());
+                        RequestQueue queue = nc.getRequestQueue();
 
-        // Request a string response from the provided URL.
-        StringRequest sr = new StringRequest(Request.Method.POST, "http://cardappweb.com/pet_cares/agendamento.php",
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //Log.i("resposta", "R: " + response);
+                        // Request a string response from the provided URL.
+                        StringRequest sr = new StringRequest(Request.Method.POST, "http://cardappweb.com/pet_cares/agendamento.php",
+                                new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        //Log.i("resposta", "R: " + response);
 
-                            pd.dismiss();
-                            Toast.makeText(Agendamento.this, response, Toast.LENGTH_LONG).show();
-                            finish();
+                                        pd.dismiss();
+                                        Toast.makeText(Agendamento.this, response, Toast.LENGTH_LONG).show();
+                                        finish();
+
+                                    }
+                                }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                pd.dismiss();
+                                Toast.makeText(getApplicationContext(), "Servidor não encontrado", Toast.LENGTH_LONG).show();
+                            }
+
+
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String, String> params = new HashMap<String, String>();
+
+                                params.put("cliente_id", "" + cliente_id);
+                                params.put("animal", animal);
+                                params.put("porte", porte);
+                                params.put("data", data);
+                                params.put("horario", horario);
+                                params.put("pagamento", pagamento);
+                                params.put("sintomas", sintomas);
+                                params.put("vacinas", vacinas);
+
+
+                                return params;
+                            }
+                        };
+
+                        queue.add(sr);
+                        pd = ProgressDialog.show(Agendamento.this, "Aguarde...", "", true);
 
                     }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                pd.dismiss();
-                Toast.makeText(getApplicationContext(), "Servidor não encontrado", Toast.LENGTH_LONG).show();
-            }
-
-
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<String, String>();
-
-                params.put("cliente_id", "" + cliente_id);
-                params.put("animal", animal);
-                params.put("porte", porte);
-                params.put("data", data);
-                params.put("horario", horario);
-                params.put("pagamento", pagamento);
-                params.put("sintomas", sintomas);
-                params.put("vacinas", vacinas);
-
-
-                return params;
-            }
-        };
-
-        queue.add(sr);
-        pd = ProgressDialog.show(this, "Aguarde...", "", true);
+                })
+                .setNegativeButton(android.R.string.no, null).show();
     }
 }

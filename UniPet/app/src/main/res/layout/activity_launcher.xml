@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/vet"
     tools:context="mobtime.henrique.com.br.unipet.Launcher"
     android:padding="15dp">
 
@@ -14,7 +15,7 @@
         android:id="@+id/btnCadastrar"
         android:textSize="18dp"
         android:padding="15dp"
-        android:textColor="@color/colorAccent"
+        android:textColor="#fefefe"
         android:background="@drawable/button_bg_transparent"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="15dp"
@@ -27,10 +28,13 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/etLogin"
+        android:backgroundTint="@android:color/white"
         android:hint="Login"
         android:layout_above="@+id/etSenha"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="match_parent"
@@ -39,10 +43,13 @@
         android:ems="10"
         android:id="@+id/etSenha"
         android:layout_centerVertical="true"
+        android:backgroundTint="@android:color/white"
         android:layout_alignLeft="@+id/etLogin"
         android:layout_alignStart="@+id/etLogin"
         android:hint="Senha"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,7 +59,8 @@
         android:id="@+id/textView61"
         android:layout_above="@+id/btnCadastrar"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="52dp" />
+        android:layout_marginBottom="48dp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +70,8 @@
         android:id="@+id/textView62"
         android:textSize="45dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="match_parent"
@@ -71,6 +80,7 @@
         android:id="@+id/btnLogar"
         android:layout_below="@+id/etSenha"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp" />
 
 </RelativeLayout>

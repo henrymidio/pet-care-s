@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mobtime.henrique.com.br.unipet.MedicoProfile">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:id="@+id/imageView4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/blur_people" />
+
+    <com.pkmmte.view.CircularImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:id="@+id/imageView5"
+        app:border="true"
+        android:src="@drawable/tatiane"
+        android:layout_marginTop="131dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/tvMarca"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView5"
+        android:text="Nome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="CRMV"
+        android:id="@+id/textView60"
+        android:layout_below="@+id/tvMarca"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="&quot;Frase&quot;"
+        android:id="@+id/tvFrase"
+        android:layout_below="@+id/textView60"
+        android:layout_marginTop="20dp"
+        android:textStyle="italic"
+        android:layout_marginLeft="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Formação"
+        android:id="@+id/textView64"
+        android:layout_below="@+id/tvFrase"
+        android:layout_alignLeft="@+id/tvFrase"
+        android:layout_alignStart="@+id/tvFrase"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/accent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Faculdade"
+        android:id="@+id/tvFormacao"
+        android:layout_below="@+id/textView64"
+        android:layout_alignLeft="@+id/textView64"
+        android:layout_alignStart="@+id/textView64" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Especialidades"
+        android:id="@+id/textView66"
+        android:layout_below="@+id/tvFormacao"
+        android:layout_alignLeft="@+id/tvFormacao"
+        android:layout_alignStart="@+id/tvFormacao"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/accent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Especialidade"
+        android:id="@+id/tvEspecialidade"
+        android:layout_below="@+id/textView66"
+        android:layout_alignLeft="@+id/textView66"
+        android:layout_alignStart="@+id/textView66" />
+
+</RelativeLayout>
+
+    </ScrollView>

@@ -1,6 +1,7 @@
 package mobtime.henrique.com.br.unipet.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,10 @@ public class ListaMedicosAdapter extends BaseAdapter {
             holder.ivFoto = (CircularImageView) convertView.findViewById(R.id.ivMedico);
             holder.tvNome = (TextView) convertView.findViewById(R.id.tvNomeMedico);
             holder.tvRegistro = (TextView) convertView.findViewById(R.id.tvRegistro);
+
+            //Seta font
+            Typeface tf = Typeface.createFromAsset(ctx.getAssets(), "fonts/ProximaNova-Semibold.ttf");
+            holder.tvNome.setTypeface(tf);
         } else {
             holder = (CustomViewHolder) convertView.getTag();
         }

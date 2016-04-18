@@ -15,4 +15,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LauncherTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">#FFFFFF</item>
+        <item name="colorControlHighlight">#FFFFFF</item>
+    </style>
+
 </resources>
