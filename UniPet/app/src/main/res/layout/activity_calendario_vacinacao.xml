@@ -87,7 +87,7 @@
         <EditText
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/etVermifugo"
             android:layout_row="2"
             android:layout_column="12"
             android:inputType="date" />
@@ -114,7 +114,7 @@
         <EditText
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/etV4"
             android:layout_row="4"
             android:layout_column="12"
             android:inputType="date" />
@@ -159,7 +159,7 @@
         <EditText
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
+            android:id="@+id/etV10"
             android:inputType="date"
             android:layout_row="9"
             android:layout_column="12" />
@@ -221,7 +221,7 @@
         <EditText
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText5"
+            android:id="@+id/etGiardia"
             android:layout_row="14"
             android:layout_column="12"
             android:inputType="date" />
@@ -265,7 +265,7 @@
         <EditText
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText6"
+            android:id="@+id/etAntiRabica"
             android:inputType="date"
             android:layout_row="21"
             android:layout_column="12" />

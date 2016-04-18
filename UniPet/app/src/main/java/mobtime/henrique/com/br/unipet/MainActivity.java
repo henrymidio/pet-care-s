@@ -19,6 +19,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,7 +41,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import java.util.List;
 
+import io.realm.Realm;
 import mobtime.henrique.com.br.unipet.adapters.CustomViewPager;
+import mobtime.henrique.com.br.unipet.pojo.Animal;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton ibConsulta;
     private ImageButton ibVacinacao;
     private boolean loggedIn;
+    private AccountHeader headerResult;
+    private Realm realm;
 
 
     @Override
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
+
         //Seta font
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/ProximaNova-Semibold.ttf");
         TextView toolbar_title = (TextView) findViewById(R.id.toolbar_title);
@@ -87,19 +93,21 @@ public class MainActivity extends AppCompatActivity {
         tv5.setTypeface(tf);
 
 
-        //Blur Imagem Account Header
-        Drawable acHeader = blurImage(R.drawable.vetpronto);
+        //CRIA CABEÇALHO DO NAVIGATION DRAWER
+        final Animal pet = getPet(sp.getInt("id", 0));
 
-        // Create the AccountHeader
-        AccountHeader headerResult = new AccountHeaderBuilder()
-                .withActivity(this)
-                .withHeaderBackground(R.drawable.bkheader)
-                .addProfiles(
-                        new ProfileDrawerItem().withName("Pet Care's").withEmail("petcares@outlook.com.br").withIcon(R.drawable.pata)
-                        // new ProfileDrawerItem().withName("Scooby").withEmail("60 Kg | 140 cm | 4 anos").withIcon(R.drawable.scooby)
-                )
-                .build();
-
+        if(pet != null){
+            headerResult = cabecalhoPet(pet);
+        }else {
+           headerResult = new AccountHeaderBuilder()
+                    .withActivity(this)
+                    .withHeaderBackground(R.drawable.bkheader)
+                    .addProfiles(
+                            new ProfileDrawerItem().withName("Pet Care's").withEmail("petcares@outlook.com.br").withIcon(R.drawable.pata)
+                            // new ProfileDrawerItem().withName("Scooby").withEmail("60 Kg | 140 cm | 4 anos").withIcon(R.drawable.scooby)
+                    )
+                    .build();
+        }
 
         //create the drawer and remember the `Drawer` result object
         Drawer result = new DrawerBuilder()
@@ -120,17 +128,22 @@ public class MainActivity extends AppCompatActivity {
                         // do something with the clicked item :D
                         switch (position) {
                             case 1:
-                                Intent it1 = new Intent(MainActivity.this, Conclusao.class);
-                                startActivity(it1);
+
                                 break;
                             case 2:
                                 Intent it2 = new Intent(MainActivity.this, MeusAtendimentos.class);
                                 startActivity(it2);
                                 break;
                             case 3:
-                                Intent it3 = new Intent(MainActivity.this, CalendarioVacinacao.class);
-                                startActivity(it3);
-                                break;
+                                if(pet == null){
+                                    Intent it3 = new Intent(MainActivity.this, AddAnimal.class);
+                                    startActivity(it3);
+                                    break;
+                                } else {
+                                    Intent it3 = new Intent(MainActivity.this, CalendarioVacinacao.class);
+                                    startActivity(it3);
+                                    break;
+                                }
                             case 5:
                                 Intent it5 = new Intent(MainActivity.this, Precos.class);
                                 startActivity(it5);
@@ -172,6 +185,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        realm.close();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_activity_main, menu);
@@ -186,14 +205,37 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public Animal getPet(int dono){
+        //Grava o objeto no Realm
+        realm = Realm.getInstance(this);
+        Animal pet = realm.where(Animal.class).equalTo("dono", dono).findFirst();
+
+        return pet;
+    }
+
+    public AccountHeader cabecalhoPet(Animal p){
+        Bitmap bitFoto = p.getFoto();
+        Drawable fotoHeader = blurImage(bitFoto);
+        // Create the AccountHeader
+        AccountHeader headerResult = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(fotoHeader)
+                .addProfiles(
+                        new ProfileDrawerItem().withName(p.getNome()).withIcon(bitFoto)
+                )
+                .build();
+
+        return headerResult;
+    }
+
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public Drawable blurImage(int res){
-        Bitmap icon = BitmapFactory.decodeResource(getResources(), res);
+    public Drawable blurImage(Bitmap icon){
+
         final RenderScript rs = RenderScript.create(this);
         final Allocation input = Allocation.createFromBitmap( rs, icon, Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SCRIPT );
         final Allocation output = Allocation.createTyped( rs, input.getType() );
         final ScriptIntrinsicBlur script = ScriptIntrinsicBlur.create( rs, Element.U8_4(rs) );
-        script.setRadius(22);
+        script.setRadius(23);
         script.setInput(input);
         script.forEach(output);
         output.copyTo(icon);

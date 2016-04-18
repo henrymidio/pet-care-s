@@ -22,7 +22,7 @@
         <com.pkmmte.view.CircularImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:id="@+id/imageView5"
+            android:id="@+id/ivAnimalFoto"
             app:border="true"
             android:src="@drawable/logo"
             android:layout_marginTop="84dp"
@@ -36,7 +36,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/tvMarca"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/imageView5"
+            android:layout_below="@+id/ivAnimalFoto"
             android:text="Pet Care&apos;s" />
 
         <TextView

@@ -35,10 +35,8 @@ public class ListaMedicos extends AppCompatActivity {
             }
         });
 
-        Medico medico = new Medico("Dra. Bruna Tortoro", "CRMV-SP 20.303", R.drawable.bruna);
-        Medico medico2 = new Medico("Dra. Tatiane Faria", "CRMV 25588", R.drawable.tatiane);
+        Medico medico2 = new Medico("Dra. Fulana de Tal", "CRMV 57538", R.drawable.tatiane);
         List<Medico> lista = new ArrayList<>();
-        lista.add(medico);
         lista.add(medico2);
 
         lvListaMedicos = (ListView) findViewById(R.id.lvListaMedicos);

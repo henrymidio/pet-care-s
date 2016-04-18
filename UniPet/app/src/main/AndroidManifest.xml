@@ -3,6 +3,7 @@
     package="mobtime.henrique.com.br.unipet">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -36,10 +37,12 @@
         <activity
             android:name=".MeusExames"
             android:theme="@style/ToolbarTheme" />
-        <activity android:name=".CalendarioVacinacao"
-            android:theme="@style/ToolbarTheme"/>
-        <activity android:name=".Launcher"
-            android:theme="@style/LauncherTheme"/>
+        <activity
+            android:name=".CalendarioVacinacao"
+            android:theme="@style/ToolbarTheme" />
+        <activity
+            android:name=".Launcher"
+            android:theme="@style/LauncherTheme" />
         <activity
             android:name=".Cadastro"
             android:theme="@style/ToolbarTheme" />
@@ -62,8 +65,10 @@
 
         <activity
             android:name=".MapaClinicas"
-            android:theme="@style/ToolbarTheme"
-            android:label="@string/title_activity_mapa_clinicas"></activity>
+            android:label="@string/title_activity_mapa_clinicas"
+            android:theme="@style/ToolbarTheme" />
+        <activity android:name=".AddAnimal"
+            android:theme="@style/ToolbarTheme"></activity>
     </application>
 
 </manifest>

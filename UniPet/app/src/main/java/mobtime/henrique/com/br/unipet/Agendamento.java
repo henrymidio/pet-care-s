@@ -158,6 +158,16 @@ public class Agendamento extends AppCompatActivity {
                         final String v6 = (cb6.isChecked()) ? "V4" : "";
                         final String vacinas = v1 + ", " + v2 + ", " + v3 + ", " + v4 + ", " + v5 + ", " + v6;
 
+                        //Calcula o valor
+                        double valor = (cb1.isChecked()) ? 64.9 : 0;
+                        valor = (cb2.isChecked()) ? valor + 84.9 : valor + 0;
+                        valor = (cb3.isChecked()) ? valor + 89.9 : valor + 0;
+                        valor = (cb4.isChecked()) ? valor + 84.9 : valor + 0;
+                        valor = (cb5.isChecked()) ? valor + 0 : valor + 0;
+                        valor = (cb6.isChecked()) ? valor + 89.9 : valor + 0;
+
+                        final double total = (valor == 0) ? valor + 150.0 : valor;
+
 
                         // Instantiate the RequestQueue.
                         NetworkConnection nc = NetworkConnection.getInstance(getApplicationContext());
@@ -168,11 +178,15 @@ public class Agendamento extends AppCompatActivity {
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
-                                        //Log.i("resposta", "R: " + response);
-
                                         pd.dismiss();
-                                        Toast.makeText(Agendamento.this, response, Toast.LENGTH_LONG).show();
-                                        finish();
+                                        if (response.startsWith("ok")) {
+                                            Intent in = new Intent(Agendamento.this, Conclusao.class);
+                                            in.putExtra("total", total);
+                                            startActivity(in);
+                                            finish();
+                                        } else {
+                                            Toast.makeText(Agendamento.this, "Servidor não encontrado", Toast.LENGTH_LONG).show();
+                                        }
 
                                     }
                                 }, new Response.ErrorListener() {
